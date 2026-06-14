@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Pernikahan - Arum & Pasangan</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap)" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ===================== -->
+  <!-- 1. HALAMAN AWAL/COVER -->
+  <!-- ===================== -->
+  <section id="cover" class="section cover">
+    <div class="overlay"></div>
+    <div class="cover-content">
+      <p class="label-undangan">The Wedding of</p>
+      <h1 class="nama-pengantin">Arum & Budi</h1>
+      <p class="tanggal-nikah">Minggu, 20 Juli 2025</p>
+      
+      <div class="tamu-container">
+        <p>Kepada Yth.</p>
+        <p class="nama-tamu" id="nama-tamu">Bapak/Ibu/Saudara/i</p>
+      </div>
+      
+      <button id="btn-buka" class="btn-buka">
+        <span>💌</span> Buka Undangan
+      </button>
+    </div>
+  </section>
+
+  <!-- ===================== -->
+  <!-- 2. NAMA PENGANTIN     -->
+  <!-- ===================== -->
+  <section id="pengantin-intro" class="section hidden">
+    <div class="section-content">
+      <p class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</p>
+      <p class="ayat">
+        "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu 
+        pasangan hidup dari jenismu sendiri, supaya kamu merasa tenteram kepadanya, 
+        dan dijadikan-Nya di antaramu rasa kasih dan sayang."
+      </p>
+      <p class="ayat-sumber">— QS. Ar-Rum: 21</p>
+      
+      <h2 class="nama-pengantin-besar">Arum & Budi</h2>
+    </div>
+  </section>
+
+  <!-- ===================== -->
+  <!-- 3. SURAT / UNDANGAN   -->
+  <!-- ===================== -->
+  <section id="surat" class="section hidden">
+    <div class="section-content">
+      <h2 class="section-title">Surat Undangan</h2>
+      
+      <div class="surat-box">
+        <p>Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
+        <p>
+          Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud 
+          menyelenggarakan acara pernikahan kami:
+        </p>
+        
+        <div class="pasangan-names">
+          <div class="mempelai">
+            <h3>Arum Lestari, S.Kom</h3>
+            <p>Putri dari Bapak Ahmad & Ibu Siti</p>
+          </div>
+          <p class="dan">&</p>
+          <div class="mempelai">
+            <h3>Budi Santoso, S.T</h3>
+            <p>Putra dari Bapak Hendra & Ibu Rina</p>
+          </div>
+        </div>
+        
+        <p>
+          Merupakan suatu kehormatan bagi kami apabila Bapak/Ibu/Saudara/i 
+          berkenan hadir untuk memberikan doa restu.
+        </p>
+        <p>Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== -->
+  <!-- 4. COUNTDOWN TIMER    -->
+  <!-- ===================== -->
+  <section id="countdown" class="section hidden">
+    <div class="section-content">
+      <h2 class="section-title">Menghitung Hari</h2>
+      
+      <div class="countdown-timer">
+        <div class="time-box">
+          <span id="days">00</span>
+          <label>Hari</label>
+        </div>
+        <div class="time-box">
+          <span id="hours">00</span>
+          <label>Jam</label>
+        </div>
+        <div class="time-box">
+          <span id="minutes">00</span>
+          <label>Menit</label>
+        </div>
+        <div class="time-box">
+          <span id="seconds">00</span>
+          <label>Detik</label>
+        </div>
+      </div>
+      
+      <div class="event-details">
+        <div class="event-card">
+          <h4>📍 Akad Nikah</h4>
+          <p><strong>Pukul:</strong> 08:00 WIB</p>
+          <p><strong>Tempat:</strong> Masjid Al-Ikhlas</p>
+          <p>Jl. Melati No. 123, Jakarta Selatan</p>
+        </div>
+        <div class="event-card">
+          <h4>🎉 Resepsi</h4>
+          <p><strong>Pukul:</strong> 11:00 - 14:00 WIB</p>
+          <p><strong>Tempat:</strong> Gedung Serbaguna</p>
+          <p>Jl. Mawar No. 456, Jakarta Selatan</p>
+        </div>
+      </div>
+      
+      <a href="[maps.google.com](https://maps.google.com/?q=-6.2088,106.8456)" target="_blank" class="btn-maps">
+        📍 Buka Google Maps
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== -->
+  <!-- 5. PROFIL MEMPELAI    -->
+  <!-- ===================== -->
+  <section id="mempelai" class="section hidden">
+    <div class="section-content">
+      <h2 class="section-title">Mempelai</h2>
+      
+      <div class="mempelai-cards">
+        <div class="mempelai-card">
+          <div class="mempelai-photo">
+            <img src="assets/mempelai-wanita.jpg" alt="Mempelai Wanita">
+          </div>
+          <h3>Arum Lestari, S.Kom</h3>
+          <p class="anak-ke">Putri Pertama</p>
+          <p class="ortu">Bapak Ahmad & Ibu Siti</p>
+          <a href="[instagram.com](https://instagram.com/arumlestari)" target="_blank" class="social-link">
+            @arumlestari
+          </a>
+        </div>
+        
+        <div class="mempelai-card">
+          <div class="mempelai-photo">
+            <img src="assets/mempelai-pria.jpg" alt="Mempelai Pria">
+          </div>
+          <h3>Budi Santoso, S.T</h3>
+          <p class="anak-ke">Putra Kedua</p>
+          <p class="ortu">Bapak Hendra & Ibu Rina</p>
+          <a href="[instagram.com](https://instagram.com/budisantoso)" target="_blank" class="social-link">
+            @budisantoso
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== -->
+  <!-- 6. UCAPAN & RSVP      -->
+  <!-- ===================== -->
+  <section id="ucapan" class="section hidden">
+    <div class="section-content">
+      <h2 class="section-title">Ucapan & Doa</h2>
+      
+      <form id="form-ucapan" class="form-ucapan">
+        <input type="text" id="input-nama" placeholder="Nama Anda" required>
+        <textarea id="input-pesan" placeholder="Tulis ucapan dan doa..." required></textarea>
+        <select id="input-kehadiran">
+          <option value="">Konfirmasi Kehadiran</option>
+          <option value="hadir">✅ Akan Hadir</option>
+          <option value="tidak">❌ Tidak Bisa Hadir</option>
+          <option value="ragu">🤔 Masih Ragu</option>
+        </select>
+        <button type="submit" class="btn-kirim">Kirim Ucapan</button>
+      </form>
+      
+      <div id="daftar-ucapan" class="daftar-ucapan">
+        <!-- Ucapan akan ditampilkan di sini -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== -->
+  <!-- 7. GIFT / AMPLOP     -->
+  <!-- ===================== -->
+  <section id="gift" class="section hidden">
+    <div class="section-content">
+      <h2 class="section-title">Kirim Hadiah</h2>
+      <p class="gift-desc">
+        Tanpa mengurangi rasa hormat, bagi Anda yang ingin memberikan tanda kasih 
+        dapat melalui:
+      </p>
+      
+      <div class="gift-cards">
+        <div class="gift-card">
+          <img src="assets/bca-logo.png" alt="BCA">
+          <p class="bank-name">Bank BCA</p>
+          <p class="rekening" id="rek-bca">1234567890</p>
+          <p class="atas-nama">a.n. Arum Lestari</p>
+          <button onclick="copyRekening('1234567890')" class="btn-copy">📋 Salin</button>
+        </div>
+        <div class="gift-card">
+          <img src="assets/mandiri-logo.png" alt="Mandiri">
+          <p class="bank-name">Bank Mandiri</p>
+          <p class="rekening" id="rek-mandiri">0987654321</p>
+          <p class="atas-nama">a.n. Budi Santoso</p>
+          <button onclick="copyRekening('0987654321')" class="btn-copy">📋 Salin</button>
+        </div>
+      </div>
+      
+      <div class="alamat-hadiah">
+        <h4>📦 Kirim Hadiah Fisik</h4>
+        <p>Jl. Melati No. 123, RT 01/RW 02</p>
+        <p>Kelurahan Menteng, Jakarta Selatan 12345</p>
+        <p>Telp: 0812-3456-7890 (Arum)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer hidden">
+    <p>Terima kasih atas doa dan restunya 🙏</p>
+    <p class="footer-names">Arum & Budi</p>
+    <p class="footer-date">20 Juli 2025</p>
+  </footer>
+
+  <!-- Audio Background -->
+  <audio id="bg-music" loop>
+    <source src="assets/music.mp3" type="audio/mpeg">
+  </audio>
+  <button id="btn-music" class="btn-music">🔇</button>
+
+  <!-- Library untuk baca Excel -->
+  <script src="[cdnjs.cloudflare.com](https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js)"></script>
+  <script src="script.js"></script>
+</body>
+</html>

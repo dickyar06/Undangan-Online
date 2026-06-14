@@ -1,0 +1,618 @@
+/* ==================== */
+/* RESET & BASE STYLES  */
+/* ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #1a1a2e;
+  color: #fff;
+  line-height: 1.6;
+}
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  position: relative;
+}
+
+.section-content {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ==================== */
+/* 1. COVER / HALAMAN AWAL */
+/* ==================== */
+.cover {
+  background: url('assets/background.jpg') center/cover no-repeat fixed;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 26, 46, 0.6),
+    rgba(26, 26, 46, 0.9)
+  );
+}
+
+.cover-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  animation: fadeInUp 1s ease;
+}
+
+.label-undangan {
+  font-size: 1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c9a227;
+  margin-bottom: 10px;
+}
+
+.nama-pengantin {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4rem;
+  color: #fff;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+  margin-bottom: 15px;
+}
+
+.tanggal-nikah {
+  font-size: 1.2rem;
+  color: #e0c097;
+  margin-bottom: 40px;
+}
+
+.tamu-container {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  border-radius: 15px;
+  padding: 25px 40px;
+  margin-bottom: 30px;
+}
+
+.tamu-container p:first-child {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.nama-tamu {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #c9a227;
+  margin-top: 5px;
+}
+
+.btn-buka {
+  background: linear-gradient(135deg, #c9a227, #d4af37);
+  color: #1a1a2e;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(201, 162, 39, 0.4);
+}
+
+.btn-buka:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(201, 162, 39, 0.6);
+}
+
+.btn-buka span {
+  margin-right: 8px;
+}
+
+/* ==================== */
+/* 2. PENGANTIN INTRO   */
+/* ==================== */
+#pengantin-intro {
+  background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+}
+
+.bismillah {
+  font-size: 2.5rem;
+  color: #c9a227;
+  margin-bottom: 30px;
+}
+
+.ayat {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #ccc;
+  max-width: 600px;
+  margin: 0 auto 10px;
+}
+
+.ayat-sumber {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 40px;
+}
+
+.nama-pengantin-besar {
+  font-family: 'Great Vibes', cursive;
+  font-size: 5rem;
+  color: #c9a227;
+  text-shadow: 2px 2px 20px rgba(201, 162, 39, 0.3);
+}
+
+/* ==================== */
+/* 3. SURAT UNDANGAN    */
+/* ==================== */
+#surat {
+  background: #16213e;
+}
+
+.section-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: #c9a227;
+  margin-bottom: 30px;
+}
+
+.surat-box {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+}
+
+.surat-box p {
+  margin-bottom: 20px;
+  color: #ddd;
+}
+
+.pasangan-names {
+  margin: 40px 0;
+}
+
+.mempelai h3 {
+  font-size: 1.8rem;
+  color: #c9a227;
+  margin-bottom: 5px;
+}
+
+.mempelai p {
+  color: #aaa;
+  font-size: 0.95rem;
+}
+
+.dan {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: #c9a227;
+  margin: 20px 0;
+}
+
+/* ==================== */
+/* 4. COUNTDOWN TIMER   */
+/* ==================== */
+#countdown {
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.time-box {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  border-radius: 15px;
+  padding: 25px 30px;
+  min-width: 100px;
+  text-align: center;
+}
+
+.time-box span {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #c9a227;
+  display: block;
+}
+
+.time-box label {
+  font-size: 0.9rem;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.event-details {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.event-card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 15px;
+  padding: 25px;
+  flex: 1;
+  min-width: 250px;
+  max-width: 350px;
+}
+
+.event-card h4 {
+  font-size: 1.3rem;
+  color: #c9a227;
+  margin-bottom: 15px;
+}
+
+.event-card p {
+  color: #ccc;
+  margin-bottom: 5px;
+}
+
+.btn-maps {
+  display: inline-block;
+  background: #c9a227;
+  color: #1a1a2e;
+  padding: 12px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-maps:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(201, 162, 39, 0.5);
+}
+
+/* ==================== */
+/* 5. PROFIL MEMPELAI   */
+/* ==================== */
+#mempelai {
+  background: #1a1a2e;
+}
+
+.mempelai-cards {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.mempelai-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  border-radius: 20px;
+  padding: 40px;
+  flex: 1;
+  min-width: 280px;
+  max-width: 350px;
+}
+
+.mempelai-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px;
+  border: 4px solid #c9a227;
+}
+
+.mempelai-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mempelai-card h3 {
+  font-size: 1.5rem;
+  color: #c9a227;
+  margin-bottom: 10px;
+}
+
+.anak-ke {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.ortu {
+  color: #aaa;
+  margin-bottom: 15px;
+}
+
+.social-link {
+  color: #c9a227;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* ==================== */
+/* 6. UCAPAN & RSVP     */
+/* ==================== */
+#ucapan {
+  background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+}
+
+.form-ucapan {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto 40px;
+}
+
+.form-ucapan input,
+.form-ucapan textarea,
+.form-ucapan select {
+  padding: 15px 20px;
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.form-ucapan input::placeholder,
+.form-ucapan textarea::placeholder {
+  color: #888;
+}
+
+.form-ucapan textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.btn-kirim {
+  background: #c9a227;
+  color: #1a1a2e;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-kirim:hover {
+  background: #d4af37;
+  transform: translateY(-2px);
+}
+
+.daftar-ucapan {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.ucapan-item {
+  background: rgba(255,255,255,0.05);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: left;
+}
+
+.ucapan-item .nama {
+  font-weight: 600;
+  color: #c9a227;
+  margin-bottom: 5px;
+}
+
+.ucapan-item .pesan {
+  color: #ddd;
+}
+
+.ucapan-item .kehadiran {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 10px;
+}
+
+/* ==================== */
+/* 7. GIFT / HADIAH     */
+/* ==================== */
+#gift {
+  background: #1a1a2e;
+}
+
+.gift-desc {
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+.gift-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.gift-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  border-radius: 15px;
+  padding: 30px;
+  min-width: 250px;
+}
+
+.gift-card img {
+  height: 40px;
+  margin-bottom: 15px;
+}
+
+.bank-name {
+  font-weight: 600;
+  color: #c9a227;
+  margin-bottom: 10px;
+}
+
+.rekening {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.atas-nama {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.btn-copy {
+  background: transparent;
+  border: 1px solid #c9a227;
+  color: #c9a227;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-copy:hover {
+  background: #c9a227;
+  color: #1a1a2e;
+}
+
+.alamat-hadiah {
+  background: rgba(255,255,255,0.05);
+  border-radius: 15px;
+  padding: 25px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.alamat-hadiah h4 {
+  color: #c9a227;
+  margin-bottom: 15px;
+}
+
+.alamat-hadiah p {
+  color: #ccc;
+  margin-bottom: 5px;
+}
+
+/* ==================== */
+/* FOOTER               */
+/* ==================== */
+.footer {
+  background: #0f0c29;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.footer p {
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.footer-names {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  color: #c9a227;
+}
+
+.footer-date {
+  color: #666;
+}
+
+/* ==================== */
+/* MUSIC BUTTON         */
+/* ==================== */
+.btn-music {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #c9a227;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(201, 162, 39, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-music:hover {
+  transform: scale(1.1);
+}
+
+/* ==================== */
+/* ANIMATIONS           */
+/* ==================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* ==================== */
+/* RESPONSIVE           */
+/* ==================== */
+@media (max-width: 768px) {
+  .nama-pengantin {
+    font-size: 2.8rem;
+  }
+  
+  .nama-pengantin-besar {
+    font-size: 3.5rem;
+  }
+  
+  .time-box {
+    min-width: 70px;
+    padding: 15px 20px;
+  }
+  
+  .time-box span {
+    font-size: 2rem;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+  }
+}
