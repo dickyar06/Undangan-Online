@@ -2,7 +2,7 @@
 // KONFIGURASI
 // ================================
 const CONFIG = {
-  tanggalPernikahan: new Date('2025-07-20T08:00:00+07:00'),
+  tanggalPernikahan: new Date('2027-01-17T08:00:00+07:00'),
   namaPengantin: {
     wanita: 'Arum Lestari',
     pria: 'Budi Santoso'
@@ -161,8 +161,11 @@ function setupCountdown() {
 // ================================
 // FORM UCAPAN
 // ================================
+const GOOGLE_SHEET_WEBHOOK = 'https://script.google.com/macros/d/{YOUR_SHEET_ID}/usercallback'; // Ganti dengan Web App URL
+
 function setupFormUcapan() {
   const form = document.getElementById('form-ucapan');
+  const btnWhatsapp = document.getElementById('btn-whatsapp');
   
   form.addEventListener('submit', function(e) {
     e.preventDefault();
@@ -179,16 +182,27 @@ function setupFormUcapan() {
         waktu: new Date().toISOString()
       };
       
-      // Simpan ke localStorage (dalam produksi, kirim ke backend)
+      // Simpan ke localStorage
       saveUcapan(ucapan);
+      
+      // Kirim ke Google Sheets (optional)
+      sendToGoogleSheets(ucapan);
       
       // Tampilkan
       displayUcapan(ucapan, true);
       
       // Reset form
       form.reset();
+      alert('Ucapan Anda berhasil dikirim!');
     }
   });
+  
+  // WhatsApp Share
+  if (btnWhatsapp) {
+    btnWhatsapp.addEventListener('click', function() {
+      shareToWhatsApp();
+    });
+  }
 }
 
 function saveUcapan(ucapan) {
@@ -249,6 +263,65 @@ function copyRekening(nomor) {
     document.body.removeChild(input);
     alert('Nomor rekening berhasil disalin!');
   });
+}
+
+// ================================
+// SEND TO GOOGLE SHEETS
+// ================================
+function sendToGoogleSheets(ucapan) {
+  // Format: https://script.google.com/macros/d/YOUR_SHEET_ID/usercallback
+  // Untuk setup: buat Google Apps Script yang handle POST request
+  if (GOOGLE_SHEET_WEBHOOK && !GOOGLE_SHEET_WEBHOOK.includes('YOUR_SHEET_ID')) {
+    const payload = {
+      timestamp: new Date().toLocaleString('id-ID'),
+      nama: ucapan.nama,
+      pesan: ucapan.pesan,
+      kehadiran: ucapan.kehadiran
+    };
+    
+    fetch(GOOGLE_SHEET_WEBHOOK, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: JSON.stringify(payload)
+    }).catch(e => console.log('Sheet update:', e));
+  }
+}
+
+// ================================
+// SHARE TO WHATSAPP
+// ================================
+function shareToWhatsApp() {
+  const nama = CONFIG.namaPengantin.wanita + ' & ' + CONFIG.namaPengantin.pria;
+  const tanggal = CONFIG.tanggalPernikahan.toLocaleDateString('id-ID', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  });
+  
+  const message = `Halo! Aku mengundang Anda ke pernikahan saya:\\n\\n${nama}\\n${tanggal}\\n\\nBuka undangan: ${window.location.href}`;
+  const whatsappURL = `https://wa.me/?text=${encodeURIComponent(message)}`;
+  window.open(whatsappURL, '_blank');
+}
+
+// ================================
+// TOGGLE GIFT DETAILS
+// ================================
+function toggleGiftDetails(element, type) {
+  const details = element.querySelector('.gift-details');
+  if (details) {
+    details.classList.toggle('hidden');
+    
+    // Sembunyikan detail lainnya
+    if (type === 'transfer' || type === 'mandiri') {
+      document.querySelectorAll('.gift-card .gift-details').forEach(el => {
+        if (el !== details) el.classList.add('hidden');
+      });
+    } else if (type === 'alamat') {
+      document.querySelectorAll('.gift-card .gift-details').forEach(el => {
+        el.classList.add('hidden');
+      });
+    }
+  }
 }
 
 // ================================
