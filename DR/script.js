@@ -161,7 +161,7 @@ function setupCountdown() {
 // ================================
 // FORM UCAPAN
 // ================================
-const GOOGLE_SHEET_WEBHOOK = 'https://script.google.com/macros/d/{YOUR_SHEET_ID}/usercallback'; // Ganti dengan Web App URL
+const GOOGLE_SHEET_WEBHOOK = 'https://script.google.com/macros/d/{YOUR_SHEET_ID}/usercallback'; // Replace with your Google Apps Script Web App URL
 
 function setupFormUcapan() {
   const form = document.getElementById('form-ucapan');
@@ -182,18 +182,18 @@ function setupFormUcapan() {
         waktu: new Date().toISOString()
       };
       
-      // Simpan ke localStorage
+      // Save to localStorage
       saveUcapan(ucapan);
       
-      // Kirim ke Google Sheets (optional)
+      // Send to Google Sheets (optional)
       sendToGoogleSheets(ucapan);
       
-      // Tampilkan
+      // Display message
       displayUcapan(ucapan, true);
       
       // Reset form
       form.reset();
-      alert('Ucapan Anda berhasil dikirim!');
+      alert('Your message has been sent successfully!');
     }
   });
   
@@ -224,9 +224,9 @@ function displayUcapan(ucapan, prepend = true) {
   if (prepend) div.classList.add('animate-in');
   
   let kehadiranText = '';
-  if (ucapan.kehadiran === 'hadir') kehadiranText = '✅ Akan Hadir';
-  else if (ucapan.kehadiran === 'tidak') kehadiranText = '❌ Tidak Bisa Hadir';
-  else if (ucapan.kehadiran === 'ragu') kehadiranText = '🤔 Masih Ragu';
+  if (ucapan.kehadiran === 'hadir') kehadiranText = '✅ Will Attend';
+  else if (ucapan.kehadiran === 'tidak') kehadiranText = '❌ Cannot Attend';
+  else if (ucapan.kehadiran === 'ragu') kehadiranText = '🤔 Unsure';
   
   div.innerHTML = `
     <p class="nama">${escapeHtml(ucapan.nama)}</p>
@@ -252,7 +252,7 @@ function escapeHtml(text) {
 // ================================
 function copyRekening(nomor) {
   navigator.clipboard.writeText(nomor).then(() => {
-    alert('Nomor rekening berhasil disalin!');
+    alert('Bank account number copied to clipboard!');
   }).catch(() => {
     // Fallback
     const input = document.createElement('input');
@@ -261,7 +261,7 @@ function copyRekening(nomor) {
     input.select();
     document.execCommand('copy');
     document.body.removeChild(input);
-    alert('Nomor rekening berhasil disalin!');
+    alert('Bank account number copied to clipboard!');
   });
 }
 
@@ -292,13 +292,13 @@ function sendToGoogleSheets(ucapan) {
 // ================================
 function shareToWhatsApp() {
   const nama = CONFIG.namaPengantin.wanita + ' & ' + CONFIG.namaPengantin.pria;
-  const tanggal = CONFIG.tanggalPernikahan.toLocaleDateString('id-ID', { 
+  const tanggal = CONFIG.tanggalPernikahan.toLocaleDateString('en-GB', { 
     year: 'numeric', 
     month: 'long', 
     day: 'numeric' 
   });
   
-  const message = `Halo! Aku mengundang Anda ke pernikahan saya:\\n\\n${nama}\\n${tanggal}\\n\\nBuka undangan: ${window.location.href}`;
+  const message = `Hello! I invite you to our wedding:\n\n${nama}\n${tanggal}\n\nOpen invitation: ${window.location.href}`;
   const whatsappURL = `https://wa.me/?text=${encodeURIComponent(message)}`;
   window.open(whatsappURL, '_blank');
 }
@@ -306,33 +306,33 @@ function shareToWhatsApp() {
 // ================================
 // GIFT POPUP
 // ================================
-function openGiftModal(type) {
+function openGiftModal() {
   const modal = document.getElementById('gift-modal');
   const content = document.getElementById('gift-modal-content');
-  let html = '';
-
-  if (type === 'bca') {
-    html = `
-      <h3>Bank BCA</h3>
-      <p class="rekening">1234567890</p>
-      <p class="atas-nama">a.n. Rahmanisya</p>
-      <button type="button" class="btn-copy" onclick="copyRekening('1234567890')">📋 Salin Nomor</button>
-    `;
-  } else if (type === 'mandiri') {
-    html = `
-      <h3>Bank Mandiri</h3>
-      <p class="rekening">0987654321</p>
-      <p class="atas-nama">a.n. Dicky Abdul Rachman</p>
-      <button type="button" class="btn-copy" onclick="copyRekening('0987654321')">📋 Salin Nomor</button>
-    `;
-  } else if (type === 'alamat') {
-    html = `
-      <h3>Alamat Hadiah Fisik</h3>
-      <p>Jl. Mangga Dua Gg. Babakan Ciamis I No. 30B RT 01 RW 01 Desa Sukapura</p>
-      <p>Kec. Dayeuhkolot Kab. Bandung</p>
-      <p>Telp: 0813-1332-0994 (Dicky)</p>
-    `;
-  }
+  const html = `
+    <h3>Gift Information</h3>
+    <p class="gift-desc">Here are the bank details and physical gift address.</p>
+    <div class="gift-details-block">
+      <div class="gift-section">
+        <h4>Bank BCA</h4>
+        <p class="rekening">1234567890</p>
+        <p class="atas-nama">a.n. Rahmanisya</p>
+        <button type="button" class="btn-copy" onclick="copyRekening('1234567890')">📋 Copy Number</button>
+      </div>
+      <div class="gift-section">
+        <h4>Bank Mandiri</h4>
+        <p class="rekening">0987654321</p>
+        <p class="atas-nama">a.n. Dicky Abdul Rachman</p>
+        <button type="button" class="btn-copy" onclick="copyRekening('0987654321')">📋 Copy Number</button>
+      </div>
+      <div class="gift-section">
+        <h4>Physical Gift Address</h4>
+        <p>Jl. Mangga Dua Gg. Babakan Ciamis I No. 30B RT 01 RW 01 Desa Sukapura</p>
+        <p>Kec. Dayeuhkolot, Kabupaten Bandung</p>
+        <p>Phone: 0813-1332-0994 (Dicky)</p>
+      </div>
+    </div>
+  `;
 
   if (modal && content) {
     content.innerHTML = html;
