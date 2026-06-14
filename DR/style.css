@@ -526,6 +526,80 @@ body {
   margin-bottom: 5px;
 }
 
+.gift-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.gift-modal.hidden {
+  display: none;
+}
+
+.gift-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.gift-modal-card {
+  position: relative;
+  background: #111228;
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  border-radius: 20px;
+  width: min(560px, calc(100% - 40px));
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 30px;
+  z-index: 1;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+}
+
+.gift-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.gift-modal-card h3 {
+  color: #c9a227;
+  margin-bottom: 20px;
+}
+
+.gift-modal-card p {
+  color: #ddd;
+  margin-bottom: 15px;
+  line-height: 1.7;
+}
+
+.gift-modal-card .rekening {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.gift-modal-card .atas-nama {
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+.gift-modal-card .btn-copy {
+  display: inline-flex;
+  align-items: center;
+}
+
 /* ==================== */
 /* FOOTER               */
 /* ==================== */

@@ -272,39 +272,32 @@
       </p>
       
       <div class="gift-cards">
-        <div class="gift-card clickable-gift" onclick="toggleGiftDetails(this, 'transfer')">
+        <div class="gift-card clickable-gift" onclick="openGiftModal('bca')">
           <img src="assets/bca-logo.png" alt="BCA">
           <p class="bank-name">Bank BCA</p>
           <p class="gift-hint">Klik untuk lihat nomor rekening</p>
-          <div class="gift-details hidden">
-            <p class="rekening" id="rek-bca">1234567890</p>
-            <p class="atas-nama">a.n. Rahmanisya</p>
-            <button type="button" onclick="event.stopPropagation(); copyRekening('1234567890')" class="btn-copy">📋 Salin</button>
-          </div>
         </div>
-        <div class="gift-card clickable-gift" onclick="toggleGiftDetails(this, 'mandiri')">
+        <div class="gift-card clickable-gift" onclick="openGiftModal('mandiri')">
           <img src="assets/mandiri-logo.png" alt="Mandiri">
           <p class="bank-name">Bank Mandiri</p>
           <p class="gift-hint">Klik untuk lihat nomor rekening</p>
-          <div class="gift-details hidden">
-            <p class="rekening" id="rek-mandiri">0987654321</p>
-            <p class="atas-nama">a.n. Dicky Abdul Rachman</p>
-            <button type="button" onclick="event.stopPropagation(); copyRekening('0987654321')" class="btn-copy">📋 Salin</button>
-          </div>
         </div>
       </div>
       
-      <div class="alamat-hadiah clickable-gift" onclick="toggleGiftDetails(this, 'alamat')">
+      <div class="alamat-hadiah clickable-gift" onclick="openGiftModal('alamat')">
         <h4>📦 Kirim Hadiah Fisik</h4>
         <p class="gift-hint">Klik untuk lihat alamat</p>
-        <div class="gift-details hidden">
-          <p>Mangga Dua Gg. Babakan Ciamis I No. 30B RT 01 RW 01 Desa Sukapura</p>
-          <p>Kec. Dayeuhkolot Kab. Bandung</p>
-          <p>Telp: 0813-1332-0994 (Dicky)</p>
-        </div>
       </div>
     </div>
   </section>
+
+  <div id="gift-modal" class="gift-modal hidden">
+    <div class="gift-modal-backdrop" onclick="closeGiftModal()"></div>
+    <div class="gift-modal-card">
+      <button type="button" class="gift-modal-close" onclick="closeGiftModal()">✕</button>
+      <div id="gift-modal-content"></div>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer class="footer hidden">
@@ -315,7 +308,7 @@
 
   <!-- Audio Background -->
   <audio id="bg-music" loop>
-    <source src="assets/music.mp3" type="audio/mpeg">
+    <source src="assets/AderaMuara.mp3" type="audio/mpeg">
   </audio>
   <button id="btn-music" class="btn-music">🔇</button>
 

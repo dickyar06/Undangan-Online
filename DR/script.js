@@ -304,23 +304,46 @@ function shareToWhatsApp() {
 }
 
 // ================================
-// TOGGLE GIFT DETAILS
+// GIFT POPUP
 // ================================
-function toggleGiftDetails(element, type) {
-  const details = element.querySelector('.gift-details');
-  if (details) {
-    details.classList.toggle('hidden');
-    
-    // Sembunyikan detail lainnya
-    if (type === 'transfer' || type === 'mandiri') {
-      document.querySelectorAll('.gift-card .gift-details').forEach(el => {
-        if (el !== details) el.classList.add('hidden');
-      });
-    } else if (type === 'alamat') {
-      document.querySelectorAll('.gift-card .gift-details').forEach(el => {
-        el.classList.add('hidden');
-      });
-    }
+function openGiftModal(type) {
+  const modal = document.getElementById('gift-modal');
+  const content = document.getElementById('gift-modal-content');
+  let html = '';
+
+  if (type === 'bca') {
+    html = `
+      <h3>Bank BCA</h3>
+      <p class="rekening">1234567890</p>
+      <p class="atas-nama">a.n. Rahmanisya</p>
+      <button type="button" class="btn-copy" onclick="copyRekening('1234567890')">📋 Salin Nomor</button>
+    `;
+  } else if (type === 'mandiri') {
+    html = `
+      <h3>Bank Mandiri</h3>
+      <p class="rekening">0987654321</p>
+      <p class="atas-nama">a.n. Dicky Abdul Rachman</p>
+      <button type="button" class="btn-copy" onclick="copyRekening('0987654321')">📋 Salin Nomor</button>
+    `;
+  } else if (type === 'alamat') {
+    html = `
+      <h3>Alamat Hadiah Fisik</h3>
+      <p>Jl. Mangga Dua Gg. Babakan Ciamis I No. 30B RT 01 RW 01 Desa Sukapura</p>
+      <p>Kec. Dayeuhkolot Kab. Bandung</p>
+      <p>Telp: 0813-1332-0994 (Dicky)</p>
+    `;
+  }
+
+  if (modal && content) {
+    content.innerHTML = html;
+    modal.classList.remove('hidden');
+  }
+}
+
+function closeGiftModal() {
+  const modal = document.getElementById('gift-modal');
+  if (modal) {
+    modal.classList.add('hidden');
   }
 }
 
