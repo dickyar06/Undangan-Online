@@ -4,8 +4,8 @@
 const CONFIG = {
   tanggalPernikahan: new Date('2027-01-17T08:00:00+07:00'),
   namaPengantin: {
-    wanita: 'Arum Lestari',
-    pria: 'Budi Santoso'
+    wanita: 'Rahmanisya',
+    pria: 'Dicky Abdul Rachman'
   }
 };
 
@@ -173,12 +173,14 @@ function setupFormUcapan() {
     const nama = document.getElementById('input-nama').value.trim();
     const pesan = document.getElementById('input-pesan').value.trim();
     const kehadiran = document.getElementById('input-kehadiran').value;
+    const jumlahOrang = document.getElementById('input-jumlah-orang').value;
     
-    if (nama && pesan) {
+    if (nama && pesan && jumlahOrang) {
       const ucapan = {
         nama,
         pesan,
         kehadiran,
+        jumlahOrang: Number(jumlahOrang),
         waktu: new Date().toISOString()
       };
       
@@ -228,10 +230,15 @@ function displayUcapan(ucapan, prepend = true) {
   else if (ucapan.kehadiran === 'tidak') kehadiranText = '❌ Cannot Attend';
   else if (ucapan.kehadiran === 'ragu') kehadiranText = '🤔 Unsure';
   
+  const jumlahOrangText = (typeof ucapan.jumlahOrang === 'number' && !Number.isNaN(ucapan.jumlahOrang))
+    ? `🧾 ${ucapan.jumlahOrang} orang`
+    : '';
+
   div.innerHTML = `
     <p class="nama">${escapeHtml(ucapan.nama)}</p>
     <p class="pesan">${escapeHtml(ucapan.pesan)}</p>
     ${kehadiranText ? `<p class="kehadiran">${kehadiranText}</p>` : ''}
+    ${jumlahOrangText ? `<p class="kehadiran">${jumlahOrangText}</p>` : ''}
   `;
   
   if (prepend) {
@@ -272,11 +279,12 @@ function sendToGoogleSheets(ucapan) {
   // Format: https://script.google.com/macros/d/YOUR_SHEET_ID/usercallback
   // Untuk setup: buat Google Apps Script yang handle POST request
   if (GOOGLE_SHEET_WEBHOOK && !GOOGLE_SHEET_WEBHOOK.includes('YOUR_SHEET_ID')) {
-    const payload = {
+      const payload = {
       timestamp: new Date().toLocaleString('id-ID'),
       nama: ucapan.nama,
       pesan: ucapan.pesan,
-      kehadiran: ucapan.kehadiran
+      kehadiran: ucapan.kehadiran,
+      jumlahOrang: ucapan.jumlahOrang
     };
     
     fetch(GOOGLE_SHEET_WEBHOOK, {
@@ -291,6 +299,8 @@ function sendToGoogleSheets(ucapan) {
 // SHARE TO WHATSAPP
 // ================================
 function shareToWhatsApp() {
+  // Add Assalamualaikum + guest name in WhatsApp share message
+
   const nama = CONFIG.namaPengantin.wanita + ' & ' + CONFIG.namaPengantin.pria;
   const tanggal = CONFIG.tanggalPernikahan.toLocaleDateString('en-GB', { 
     year: 'numeric', 

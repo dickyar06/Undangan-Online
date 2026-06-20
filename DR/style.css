@@ -392,6 +392,31 @@ body {
   resize: vertical;
 }
 
+.field-orang{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.field-orang input{
+  padding: 15px 20px;
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.field-label{
+  font-size: 0.9rem;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align:left;
+  margin-left: 5px;
+}
+
 .btn-kirim {
   background: #c9a227;
   color: #1a1a2e;
