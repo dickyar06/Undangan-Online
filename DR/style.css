@@ -16,7 +16,11 @@ body {
   background: #1a1a2e;
   color: #fff;
   line-height: 1.6;
+  overflow-x: hidden;
 }
+
+
+
 
 .section {
   min-height: 100vh;
@@ -72,7 +76,7 @@ body {
 }
 
 .nama-pengantin {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Allura', cursive;
   font-size: 4rem;
   color: #fff;
   text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
@@ -156,7 +160,7 @@ body {
 }
 
 .nama-pengantin-besar {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Allura', cursive;
   font-size: 5rem;
   color: #c9a227;
   text-shadow: 2px 2px 20px rgba(201, 162, 39, 0.3);
@@ -170,7 +174,7 @@ body {
 }
 
 .section-title {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Allura', cursive;
   font-size: 3rem;
   color: #c9a227;
   margin-bottom: 30px;
@@ -205,7 +209,7 @@ body {
 }
 
 .dan {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Allura', cursive;
   font-size: 3rem;
   color: #c9a227;
   margin: 20px 0;
@@ -640,7 +644,7 @@ body {
 }
 
 .footer-names {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Allura', cursive;
   font-size: 2.5rem;
   color: #c9a227;
 }
@@ -689,6 +693,133 @@ body {
 .animate-in {
   animation: fadeInUp 0.8s ease forwards;
 }
+
+/* ==================== */
+/* EXTRA: MORE VIBES    */
+/* ==================== */
+
+/* Glowing gradient behind the cover title */
+
+.cover-subtitle{
+  margin-top: 14px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.cover-chip{animation: none !important;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(201,162,39,0.25);
+  backdrop-filter: blur(10px);
+  color: rgba(255,255,255,0.9);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  animation: chipFloat 3.2s ease-in-out infinite;
+}
+
+.cover-chip:nth-child(2){
+  animation-delay: 0.6s;
+}
+
+@keyframes chipFloat{
+  0%,100%{ transform: translateY(0); }
+  50%{ transform: translateY(-6px); }
+}
+
+.cover::before {
+  content: '';
+  position: absolute;
+  inset: -20% -20% auto -20%;
+  height: 220px;
+  background: radial-gradient(circle at 50% 50%, rgba(201,162,39,0.35), transparent 60%);
+  filter: blur(6px);
+  opacity: 0;
+  animation: coverGlow 2.8s ease forwards;
+  pointer-events: none;
+}
+
+@keyframes coverGlow {
+  0% { opacity: 0; transform: translateY(10px) scale(0.98); }
+  40% { opacity: 1; }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Floating sparkles */
+.cover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(201,162,39,0.9) 0 2px, transparent 3px),
+    radial-gradient(circle at 80% 30%, rgba(255,255,255,0.8) 0 2px, transparent 3px),
+    radial-gradient(circle at 60% 70%, rgba(201,162,39,0.7) 0 2px, transparent 3px),
+    radial-gradient(circle at 25% 75%, rgba(255,255,255,0.7) 0 2px, transparent 3px),
+    radial-gradient(circle at 55% 40%, rgba(201,162,39,0.6) 0 2px, transparent 3px);
+  background-repeat: no-repeat;
+  opacity: 0.0;
+  animation: sparkle 3.6s ease forwards;
+  pointer-events: none;
+}
+
+@keyframes sparkle {
+  0% { opacity: 0; transform: translateY(10px); }
+  25% { opacity: 0.9; }
+  70% { opacity: 0.25; }
+  100% { opacity: 0.15; transform: translateY(0); }
+}
+
+/* Button hover breath */
+.btn-buka {
+  position: relative;
+}
+
+
+.btn-buka::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 60px;
+  background: radial-gradient(circle at 50% 50%, rgba(201,162,39,0.25), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+
+.btn-buka:hover::after {
+  opacity: 1;
+}
+
+/* Countdown emphasis shimmer */
+#countdown .time-box {
+  position: relative;
+  overflow: hidden;
+}
+
+#countdown .time-box::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -30%;
+  width: 60%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(201,162,39,0.18), transparent);
+  transform: rotate(20deg);
+  animation: shimmer 2.6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-30%) rotate(20deg); }
+  55% { transform: translateX(160%) rotate(20deg); }
+  100% { transform: translateX(160%) rotate(20deg); }
+}
+
 
 /* ==================== */
 /* 5. GALERI FOTO       */

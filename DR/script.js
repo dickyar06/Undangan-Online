@@ -214,9 +214,12 @@ function saveUcapan(ucapan) {
 }
 
 function loadUcapan() {
-  const ucapans = JSON.parse(localStorage.getItem('ucapan-pernikahan') || '[]');
-  ucapans.forEach(ucapan => displayUcapan(ucapan, false));
+  // HAPUS NAMA YANG TELAH MENGISI MESSAGES & RSVP
+  // Jadi setiap halaman dibuka, pesan yang tersimpan tidak ditampilkan lagi.
+  localStorage.removeItem('ucapan-pernikahan');
+  document.getElementById('daftar-ucapan').innerHTML = '';
 }
+
 
 function displayUcapan(ucapan, prepend = true) {
   const container = document.getElementById('daftar-ucapan');
