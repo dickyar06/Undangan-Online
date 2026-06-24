@@ -974,11 +974,6 @@ body {
 
 .btn-whatsapp {
   background: transparent;
-  color: #25d366;
-  /* Pastikan teks tetap kebaca saat fokus/klik */
-  outline: none;
-
-
   border: 2px solid #25d366;
   color: #25d366;
   padding: 10px 20px;
@@ -987,6 +982,13 @@ body {
   font-weight: 600;
   transition: all 0.3s ease;
   font-family: 'Poppins', sans-serif;
+  outline: none;
+}
+
+.btn-whatsapp:focus,
+.btn-whatsapp:active {
+  color: #25d366;
+  outline: none;
 }
 
 .btn-whatsapp:hover {

@@ -311,7 +311,7 @@ function shareToWhatsApp() {
     day: 'numeric' 
   });
   
-  const message = `Hello! I invite you to our wedding:\n\n${nama}\n${tanggal}\n\nOpen invitation: ${window.location.href}`;
+  const message = `Assalamualaikum Wr. Wb \n\nTanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i: \n\n${nama}\n${tanggal} \n\nUntuk menghadiri acara kami. Berikut link undangan kami, untuk info lengkap dari acara bisa kunjungi : \n\n${window.location.href} \n\nMerupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu. Mohon maaf perihal undangan hanya di bagikan melalui pesan ini. Terima kasih banyak atas perhatiannya. \n\nWassalamualaikum Wr. Wb`;
   const whatsappURL = `https://wa.me/?text=${encodeURIComponent(message)}`;
   window.open(whatsappURL, '_blank');
 }
