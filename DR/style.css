@@ -164,6 +164,18 @@ body {
   font-size: 5rem;
   color: #c9a227;
   text-shadow: 2px 2px 20px rgba(201, 162, 39, 0.3);
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+}
+
+/* Biar tulisan cursive lebih terbaca/“nyambung” */
+.nama-tamu,
+.cover-content .nama-pengantin,
+.nama-pengantin-besar,
+.btn-buka {
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ==================== */
@@ -297,6 +309,26 @@ body {
   transform: scale(1.05);
   box-shadow: 0 5px 20px rgba(201, 162, 39, 0.5);
 }
+
+/* Tombol Gift: tampil seperti tombol Maps (beda sedikit warna) */
+.btn-gift {
+  display: inline-block;
+  background: linear-gradient(135deg, #d4af37, #c9a227);
+  color: #1a1a2e;
+  padding: 12px 30px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+}
+
+.btn-gift:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(201, 162, 39, 0.5);
+}
+
 
 /* ==================== */
 /* 5. PROFIL MEMPELAI   */
