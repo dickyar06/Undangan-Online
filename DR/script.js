@@ -166,16 +166,27 @@ const GOOGLE_SHEET_WEBHOOK = 'https://script.google.com/macros/d/{YOUR_SHEET_ID}
 function setupFormUcapan() {
   const form = document.getElementById('form-ucapan');
   const btnWhatsapp = document.getElementById('btn-whatsapp');
+  const btnSaveUcapan = document.getElementById('btn-save-ucapan');
+  const btnSaveRsvp = document.getElementById('btn-save-rsvp');
+
   
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
+  function ambilDataForm() {
     const nama = document.getElementById('input-nama').value.trim();
     const pesan = document.getElementById('input-pesan').value.trim();
     const kehadiran = document.getElementById('input-kehadiran').value;
     const jumlahOrang = document.getElementById('input-jumlah-orang').value;
-    
+
+    return { nama, pesan, kehadiran, jumlahOrang };
+  }
+  
+  // Submit/Save Ucapan (pesan wajib)
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const { nama, pesan, kehadiran, jumlahOrang } = ambilDataForm();
+
     if (nama && pesan && jumlahOrang) {
+
       const ucapan = {
         nama,
         pesan,
@@ -199,6 +210,30 @@ function setupFormUcapan() {
     }
   });
   
+  // Save RSVP (tanpa pesan)
+  if (btnSaveRsvp) {
+    btnSaveRsvp.addEventListener('click', function() {
+      const { nama, pesan, kehadiran, jumlahOrang } = ambilDataForm();
+      if (nama && kehadiran && jumlahOrang) {
+        const rsvp = {
+          nama,
+          pesan: pesan || '(Tanpa pesan)',
+          kehadiran,
+          jumlahOrang: Number(jumlahOrang),
+          waktu: new Date().toISOString()
+        };
+
+        saveUcapan(rsvp);
+        sendToGoogleSheets(rsvp);
+        displayUcapan(rsvp, true);
+        form.reset();
+        alert('Konfirmasi kehadiran berhasil disimpan!');
+      } else {
+        alert('Lengkapi Nama, Konfirmasi Kehadiran, dan Jumlah Orang.');
+      }
+    });
+  }
+
   // WhatsApp Share
   if (btnWhatsapp) {
     btnWhatsapp.addEventListener('click', function() {
@@ -229,9 +264,10 @@ function displayUcapan(ucapan, prepend = true) {
   if (prepend) div.classList.add('animate-in');
   
   let kehadiranText = '';
-  if (ucapan.kehadiran === 'hadir') kehadiranText = '✅ Will Attend';
-  else if (ucapan.kehadiran === 'tidak') kehadiranText = '❌ Cannot Attend';
-  else if (ucapan.kehadiran === 'ragu') kehadiranText = '🤔 Unsure';
+  if (ucapan.kehadiran === 'hadir') kehadiranText = '✅ Akan Hadir';
+  else if (ucapan.kehadiran === 'tidak') kehadiranText = '❌ Tidak Hadir';
+  else if (ucapan.kehadiran === 'ragu') kehadiranText = '🤔 Ragu-Ragu';
+
   
   const jumlahOrangText = (typeof ucapan.jumlahOrang === 'number' && !Number.isNaN(ucapan.jumlahOrang))
     ? `🧾 ${ucapan.jumlahOrang} orang`
@@ -323,8 +359,9 @@ function openGiftModal() {
   const modal = document.getElementById('gift-modal');
   const content = document.getElementById('gift-modal-content');
   const html = `
-    <h3>Gift Information</h3>
-    <p class="gift-desc">Here are the bank details and physical gift address.</p>
+    <h3>Info Hadiah</h3>
+    <p class="gift-desc">Berikut detail rekening dan alamat hadiah.</p>
+
     <div class="gift-details-block">
       <div class="gift-section">
         <h4>Bank BCA</h4>

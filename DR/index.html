@@ -40,10 +40,11 @@
       <p class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</p>
       <p class="latin">Bismillāhirrahmānirrahīm</p>
       <p class="ayat">
-        "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari (jenis) kamu sendiri, agar kamu menemukan ketenangan bersama mereka, dan Dia menjadikan (rasa) cinta dan kasih sayang di antara kamu."
+        "And among His Signs is this, that He created for you mates from among yourselves, that ye may dwell in tranquillity with them, and He has put love and mercy between your hearts.."
       </p>
       <p class="ayat-sumber">— QS. Ar-Rum: 21</p>
       
+      <p class="label-undangan"> The Wedding Of </p>
       <h2 class="nama-pengantin-besar">Dicky & Rahma</h2>
     </div>
   </section>
@@ -145,7 +146,7 @@
           <img src="assets/foto_couple_3.jpeg" alt="Foto Pasangan 3">
         </div>
         <div class="gallery-item">
-          <img src="assets/foto_couple_4.png" alt="Foto Pasangan 4">
+          <img src="assets/foto_couple_4.jpeg" alt="Foto Pasangan 4">
         </div>
         <div class="gallery-item">
           <img src="assets/foto_couple_5.png" alt="Foto Pasangan 5">
@@ -160,7 +161,7 @@
  <!-- ===================== -->
   <!-- 5b. KISAH CINTA TIMELINE -->
   <!-- ===================== -->
-  <section id="love-story" class="section hidden">
+  <!-- <section id="love-story" class="section hidden">
     <div class="section-content">
 <h2 class="section-title">Kisah Cinta</h2>
       <div class="timeline">
@@ -194,7 +195,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- ===================== -->
   <!-- 6. PROFIL PASANGAN -->
@@ -208,7 +209,7 @@
           <div class="mempelai-photo">
             <img src="assets/Dicky-background-biru.png" alt="Pengantin Pria">
           </div>
-          <h3>Dicky Abdul Rachman</h3>
+          <h3>Dicky Abdul Rachman S. Si. Kom</h3>
 <p class="anak-ke">Anak Pertama</p>
 <p class="ortu">Putra dari Bapak Karman & Ibu Neneng Ratnanengsih</p>
           <a href="https://www.instagram.com/a.r_dky/" target="_blank" class="social-link">
@@ -220,7 +221,7 @@
           <div class="mempelai-photo">
             <img src="assets/Rahma-background-biru.png" alt="Pengantin Wanita">
           </div>
-          <h3>Rahmanisya</h3>
+          <h3>Rahmanisya S.M</h3>
           <p class="anak-ke">Anak Pertama</p>
           <p class="ortu">Dari Bapak Muhammad Syahril & Ibu Popon (Alm)</p>
           <a href="https://www.instagram.com/rahmansy_31/" target="_blank" class="social-link">
@@ -238,27 +239,42 @@
     <div class="section-content">
 <h2 class="section-title">Ucapan & Doa</h2>
       
-      <form id="form-ucapan" class="form-ucapan">
-      <input type="text" id="input-nama" placeholder="Nama Anda" required>
-      <textarea id="input-pesan" placeholder="Tulis pesan dan doa Anda..." required></textarea>
-        <select id="input-kehadiran">
-          <option value="">Konfirmasi Kehadiran</option>
-          <option value="hadir">✅ Hadir</option>
-          <option value="tidak">❌ Tidak Hadir</option>
-          <option value="ragu">🤔 Ragu-Ragu</option>
-        </select>
+      <div class="rsvp-ucapan">
+        <form id="form-ucapan" class="form-ucapan">
+          <input type="text" id="input-nama" placeholder="Nama Anda" required>
+          <textarea id="input-pesan" placeholder="Tulis pesan dan doa Anda..." required></textarea>
 
-        <div class="field-orang" id="field-jumlah-orang">
-          <input type="number" id="input-jumlah-orang" min="1" step="1" placeholder="Jumlah Orang" required>
-          <label for="input-jumlah-orang" class="field-label">Jumlah orang yang hadir</label>
-        </div>
+          <!-- <div class="button-group">
+            <button type="submit" class="btn-kirim" id="btn-save-ucapan" style="display:none;">Simpan Ucapan</button>
+          </div> -->
 
-        <div class="button-group">
-<button type="submit" class="btn-kirim">Kirim Ucapan</button>
-<button type="button" id="btn-whatsapp" class="btn-whatsapp">📱 Bagikan di WhatsApp</button>
+
+          <div class="rsvp-grid">
+            <div class="field-kehadiran">
+              <label for="input-kehadiran" class="field-label">Konfirmasi Kehadiran</label>
+              <select id="input-kehadiran">
+                <option value="">Pilih</option>
+                <option value="hadir">✅ Hadir</option>
+                <option value="tidak">❌ Tidak Hadir</option>
+                <option value="ragu">🤔 Ragu-Ragu</option>
+              </select>
+            </div>
+
+            <div class="field-orang" id="field-jumlah-orang">
+              <label for="input-jumlah-orang" class="field-label">Jumlah orang yang hadir</label>
+              <input type="number" id="input-jumlah-orang" min="1" step="1" placeholder="Jumlah Orang" required>
+            </div>
+          </div>          
+
+        </form>
+
+        <div class="button-group" style="margin-top: 10px;">
+          <button type="button" id="btn-whatsapp" class="btn-whatsapp">📱 Bagikan di WhatsApp</button> 
+          <button type="button" class="btn-kirim" id="btn-save-rsvp"> Kirim </button>
+
         </div>
-      </form>
-      
+      </div>
+
       <div id="daftar-ucapan" class="daftar-ucapan">
         <!-- Ucapan akan tampil di sini -->
       </div>
@@ -270,7 +286,7 @@
   <!-- ===================== -->
   <section id="gift" class="section hidden">
     <div class="section-content">
-      <h2 class="section-title">Hadiah</h2>
+      <h2 class="section-title">Wedding Gift</h2>
       <p class="gift-desc">
         Dengan hormat, jika Anda ingin memberikan hadiah, silakan klik tombol di bawah untuk melihat info rekening dan alamat hadiah.
       </p>

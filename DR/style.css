@@ -45,10 +45,41 @@ body {
 /* 1. COVER / HALAMAN AWAL */
 /* ==================== */
 .cover {
-  background: url('assets/background.jpg') center/cover no-repeat fixed;
+  background: url('assets/background-cover.jpg') center/cover no-repeat fixed;
   position: relative;
   overflow: hidden;
 }
+
+/* Background tiap section invitation (beda warna) */
+#pengantin-intro.section {
+  background: linear-gradient(135deg, #0f0c29 0%, #1a1a2e 100%);
+}
+
+#surat.section {
+  background: linear-gradient(135deg, #16213e 0%, #0f172a 100%);
+}
+
+#countdown.section {
+  background: linear-gradient(135deg, #0b132b 0%, #302b63 100%);
+}
+
+#galeri.section {
+  background: linear-gradient(135deg, #1a1a2e 0%, #111827 100%);
+}
+
+#mempelai.section {
+  background: linear-gradient(135deg, #0f172a 0%, #1a1a2e 100%);
+}
+
+#ucapan.section {
+  background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+}
+
+#gift.section {
+  background: linear-gradient(135deg, #0b132b 0%, #1a1a2e 100%);
+}
+
+
 
 .cover .overlay {
   position: absolute;
@@ -352,8 +383,11 @@ body {
   flex: 1;
   min-width: 280px;
   max-width: 350px;
+  overflow: visible;
+  position: relative;
 }
 
+/* Supaya area foto tetap kotak penuh, tapi nama tetap tampil di atas background card */
 .mempelai-photo {
   width: 180px;
   height: 180px;
@@ -361,13 +395,21 @@ body {
   overflow: hidden;
   margin: 0 auto 20px;
   border: 4px solid #c9a227;
+  flex: 0 0 auto;
 }
+
+
+
+
 
 .mempelai-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 50%;
 }
+
+
 
 .mempelai-card h3 {
   font-size: 1.5rem;
@@ -433,6 +475,34 @@ body {
   flex-direction:column;
   gap:8px;
 }
+
+.rsvp-grid{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.rsvp-grid .field-kehadiran,
+.rsvp-grid .field-orang{
+  display:flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.rsvp-grid .field-kehadiran select,
+.rsvp-grid .field-orang input{
+  width: 100%;
+}
+
+
+
+
+.rsvp-grid .field-kehadiran,
+.rsvp-grid .field-orang{
+  flex: 1;
+}
+
 
 .field-orang input{
   padding: 15px 20px;
@@ -502,12 +572,42 @@ body {
   margin-top: 10px;
 }
 
+/* Samakan styling font label & select RSVP dengan form ucapan */
+.rsvp-grid label.field-label,
+.rsvp-grid .field-kehadiran select,
+.rsvp-grid .field-orang input{
+  font-family: 'Poppins', sans-serif;
+}
+
+.rsvp-grid .field-kehadiran select{
+  font-family: 'Poppins', sans-serif;
+}
+
+.rsvp-grid .field-label{
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.rsvp-grid .field-kehadiran select{
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  border-radius: 10px;
+  padding: 15px 20px;
+  color: #fff;
+  font-size: 1rem;
+}
+
+
 /* ==================== */
 /* 7. GIFT / HADIAH     */
 /* ==================== */
 #gift {
   background: #1a1a2e;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
+
+
 
 .gift-desc {
   color: #aaa;
