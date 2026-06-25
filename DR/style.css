@@ -387,6 +387,8 @@ body {
   position: relative;
 }
 
+
+
 /* Supaya area foto tetap kotak penuh, tapi nama tetap tampil di atas background card */
 .mempelai-photo {
   width: 180px;
@@ -411,21 +413,40 @@ body {
 
 
 
-.mempelai-card h3 {
+/* .mempelai-card h3 {
   font-size: 1.5rem;
   color: #c9a227;
-  margin-bottom: 10px;
-}
+  padding: 8px 14px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  border-radius: 12px;
+  display: inline-block;
+  margin: 0;
+} */
 
-.anak-ke {
+
+
+
+/* .anak-ke {
   color: #888;
   font-size: 0.9rem;
-}
+  padding: 8px 14px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  border-radius: 12px;
+  display: inline-block;
+  margin-top: 10px;
+} */
+
 
 .ortu {
   color: #aaa;
-  margin-bottom: 15px;
+  margin-bottom: 0;
+  padding: 0 14px;
+  background: rgba(0, 0, 0, 0.0);
+  border: 0;
 }
+
 
 .social-link {
   color: #c9a227;
@@ -784,6 +805,50 @@ body {
 .footer-date {
   color: #666;
 }
+
+.footer-creator {
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px solid rgba(201, 162, 39, 0.25);
+}
+
+.footer-creator-text {
+  color: #888;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+.footer-creator-name {
+  font-family: 'Allura', cursive;
+  font-size: 1.1rem;
+  color: #c9a227;
+  margin-bottom: 6px;
+}
+
+.footer-creator-wa {
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #25d366;
+  text-decoration: none;
+  font-weight: 300;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  background: rgba(37, 211, 102, 0.08);
+  transition: all 0.2s ease;
+}
+
+.footer-creator-wa:hover {
+  background: rgba(37, 211, 102, 0.18);
+  transform: translateY(-2px);
+}
+
+.footer-creator-wa-icon {
+  font-size: 1.1rem;
+}
+
 
 /* ==================== */
 /* MUSIC BUTTON         */
