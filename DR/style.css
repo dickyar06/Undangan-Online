@@ -787,7 +787,7 @@ body {
 /* ==================== */
 .footer {
   background: #0f0c29;
-  padding: 60px 20px;
+  padding: 30px 20px;
   text-align: center;
 }
 
@@ -819,7 +819,7 @@ body {
 }
 
 .footer-creator-name {
-  font-family: 'Allura', cursive;
+  font-family: 'Arial', cursive;
   font-size: 1.1rem;
   color: #c9a227;
   margin-bottom: 6px;
@@ -1133,10 +1133,12 @@ body {
 /* ==================== */
 .button-group {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 6px;
 }
+
 
 
 .btn-whatsapp {
