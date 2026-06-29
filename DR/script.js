@@ -347,7 +347,7 @@ function shareToWhatsApp() {
     day: 'numeric' 
   });
   
-  const message = `Assalamualaikum Wr. Wb \n\nTanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i: \n\n${nama}\n${tanggal} \n\nUntuk menghadiri acara kami. Berikut link undangan kami, untuk info lengkap dari acara bisa kunjungi : \n\n${window.location.href} \n\nMerupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu. Mohon maaf perihal undangan hanya di bagikan melalui pesan ini. Terima kasih banyak atas perhatiannya. \n\nWassalamualaikum Wr. Wb`;
+  const message = `Assalamu'alaikum Warahmatullahi Wabarakatuh \n\nTanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada acara pernikahan kami: \n\n${nama}\n${tanggal} \n\nUntuk informasi lengkap mengenai waktu, lokasi, dan rangkaian acara, silakan mengunjungi undangan digital kami melalui tautan berikut: \n\n${window.location.href} \n\nKehadiran dan doa restu dari Bapak/Ibu/Saudara/i akan menjadi hadiah terindah bagi kami. Terima kasih atas doa dan dukungannya. 🙏🏻💐 \nMohon maaf karena undangan ini kami sampaikan melalui pesan digital. \nAtas perhatian dan kehadirannya, kami ucapkan terima kasih. \n\nWassalamu'alaikum Warahmatullahi Wabarakatuh`;
   const whatsappURL = `https://wa.me/?text=${encodeURIComponent(message)}`;
   window.open(whatsappURL, '_blank');
 }
