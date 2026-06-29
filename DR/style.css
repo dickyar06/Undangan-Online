@@ -1136,8 +1136,12 @@ body {
   gap: 8px;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  text-align: center;
   margin-top: 6px;
 }
+
+
 
 
 
