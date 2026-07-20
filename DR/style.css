@@ -213,8 +213,9 @@ body {
 /* 3. SURAT UNDANGAN    */
 /* ==================== */
 #surat {
-  background: #16213e;
+  background: url('assets/foto_couple_1.jpeg') center/cover no-repeat;
 }
+
 
 .section-title {
   font-family: 'Allura', cursive;
