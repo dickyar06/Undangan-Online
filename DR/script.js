@@ -396,7 +396,6 @@ function closeGiftModal() {
     modal.classList.add('hidden');
   }
 }
-
 // ================================
 // MUSIK BACKGROUND
 // ================================
@@ -468,3 +467,47 @@ function downloadLinksAsCSV(links) {
   a.click();
   URL.revokeObjectURL(url);
 }
+
+// ================================
+// HORIZONTAL GALLERY DRAG/TOUCH SUPPORT
+// ================================
+function enableGalleryDrag(selector = '.gallery-container') {
+  const gallery = document.querySelector(selector);
+  if (!gallery) return;
+
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  gallery.addEventListener('mousedown', (e) => {
+    isDown = true;
+    gallery.classList.add('active');
+    startX = e.pageX - gallery.offsetLeft;
+    scrollLeft = gallery.scrollLeft;
+  });
+  gallery.addEventListener('mouseleave', () => { isDown = false; gallery.classList.remove('active'); });
+  gallery.addEventListener('mouseup', () => { isDown = false; gallery.classList.remove('active'); });
+  gallery.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - gallery.offsetLeft;
+    const walk = (x - startX) * 1.5; // scroll-fast
+    gallery.scrollLeft = scrollLeft - walk;
+  });
+
+  // Touch
+  let touchStartX = 0;
+  let touchStartScroll = 0;
+  gallery.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].pageX;
+    touchStartScroll = gallery.scrollLeft;
+  }, { passive: true });
+  gallery.addEventListener('touchmove', (e) => {
+    const dx = e.touches[0].pageX - touchStartX;
+    gallery.scrollLeft = touchStartScroll - dx;
+  }, { passive: true });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  enableGalleryDrag('.gallery-container');
+});
