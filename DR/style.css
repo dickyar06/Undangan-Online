@@ -42,14 +42,14 @@ body {
 /* 1. COVER / HALAMAN AWAL */
 /* ==================== */
 .cover {
-  background: url('assets/background-cover.jpg') center/cover no-repeat fixed;
+  background: url('assets/nunjuk.jpeg') center/cover no-repeat fixed;
   position: relative;
   overflow: hidden;
 }
 
 /* Background tiap section invitation (beda warna) */
 #pengantin-intro.section {
-  background: linear-gradient(135deg, #0f0c29 0%, #1a1a2e 100%);
+  background: url('assets/nunjuk.jpeg') center/cover no-repeat fixed;
 }
 
 #surat.section {
@@ -164,7 +164,24 @@ body {
 /* 2. PENGANTIN INTRO   */
 /* ==================== */
 #pengantin-intro {
-  background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+#pengantin-intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(14, 18, 35, 0.78),
+    rgba(14, 18, 35, 0.9)
+  );
+}
+
+#pengantin-intro .section-content {
+  position: relative;
+  z-index: 1;
 }
 
 .bismillah {
